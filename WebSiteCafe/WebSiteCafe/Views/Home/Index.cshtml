@@ -1,0 +1,19 @@
+﻿@using WebSiteCafe.Models;
+@model List<SanPham>
+<link href="~/Content/TrangChu.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div id="divbody">
+    @foreach (var sp in Model)
+    {
+        <div class="container">
+            <img src="@Url.Content("~/hinhanhsp/" +sp.AnhBia)" alt="Avatar" class="image" style="width:236px; height:369px" />
+            <div class="middle">
+                <div class="text"><a href="@Url.Action("XemChiTiet","Home",new { MaSP = sp.MaSP})" style="text-decoration:none;">Chi tiết!</a></div>
+            </div>
+        </div>
+    }
+</div>

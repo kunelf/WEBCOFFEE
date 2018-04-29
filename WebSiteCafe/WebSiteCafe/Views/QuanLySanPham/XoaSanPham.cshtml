@@ -1,0 +1,105 @@
+﻿@model WebSiteCafe.Models.SanPham
+
+@{
+    ViewBag.Title = "XoaSanPham";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN SẢN PHẨM CẦN XÓA</h2>
+
+<h3>Bạn muốn xóa sản phẩm này?</h3>
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSP)
+        </dd>
+
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.GiaBan) VNĐ
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd style="width:600px;text-align:justify">
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            Ảnh bìa:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/hinhanhsp/"+Model.AnhBia)" style="width:120px" />
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            Số lượng tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+           Loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanLoai.TenLoai)
+        </dd>
+
+        <dt>
+           Nhà cung cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
+        </dd>
+
+        <dt>
+            Mới:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Moi) (Ghi chú: 1:Mới nhất; 2:Nổi bật; 3:Bán chạy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Index")
+        </div>
+    }
+</div>

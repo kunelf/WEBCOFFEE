@@ -1,0 +1,203 @@
+﻿div#ToanTrang{
+    position:relative;
+    background-color:white;
+    font-weight:bold;
+}
+.flash{
+    background-color:#1E2629/*#241508*/;
+}
+.DangKyDangNhap {
+    float:right;
+    margin-top:-1%;
+}
+.DangKyDangNhap a:hover{
+    text-decoration:none;
+    color:#8d7147;
+}
+.DienThoai{
+    float:left;
+    margin-top:-1%;
+}
+#divDanhMuc{
+    background-color:white;
+    margin-left:20%;
+}
+/*css menu*/
+.navMenu{
+    z-index: 99999;
+}
+.navMenu li{
+    display:inline;
+    color:black;
+    padding:22px;
+    padding-top:22px;
+    -moz-transition:all .5s ease-out;
+    -webkit-transition:all .5s ease-out;
+    
+}
+.navMenu li:hover{
+    color:white;
+    background-color:#8d7147;
+    border-radius:5px;
+    -moz-transition:all .5s ease-out;
+    -webkit-transition:all .5s ease-out;
+}
+.navMenu a:hover {
+    text-decoration:none;
+}
+/*.navMenu.dropdown:hover{
+    text-decoration:none;
+}
+.navMenu li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}*/
+/*Css divTimKiem*/
+#txtTimKiem{
+    float:right;
+    margin-top:-0.7%;
+    margin-right:20px;
+}
+/*Css btnTimKiem*/
+#divHinhAnhTimKiem button{
+    padding:5px 10px 0 10px;
+    margin-left:-90px;
+    background-color:white;
+}
+#divHinhAnhTimKiem button:hover{
+    background-color:#8d7147;
+    color:white;
+    border-radius:5px;
+}
+#divHinhAnhTimKiem img {
+    width:30px;
+    height:30px;
+}
+/*Css cho nivoslider*/
+.nivoSlider{
+    z-index:0;
+}
+/*#slider img{
+    width:800px;
+    height:3600px;
+}*/
+/*Css icon shop*/
+.icon {
+    float:left;
+    margin-top:-1%;
+    margin-left:50px;
+}
+.img {
+    margin-top:-3%;
+    margin-left:5%;
+    margin-right:5%;
+}
+/*Css danh mục sp*/
+#divDanhMucSP{
+    border-radius:5px;
+    background-color:#ebebeb;
+    margin-left:32%;
+    margin-right:32%;
+
+}
+
+/*css footer*/
+.footerleft{
+    margin-left:7%;
+    float:left;
+    width:70%;
+    
+}
+
+/*.u1 li{
+    display:inline;
+}
+.u2 li{
+    display:inline;
+}*/
+/*.footerright{
+    float:right;
+    width:40%;
+}*/
+.footerleft .tabble1{
+    width:100%;
+}
+/*.footerright{
+    margin-right:7%;
+    width:489px;
+    float:right;
+}*/
+ .infooterright{
+    width:93%;
+    margin-right:7%;
+}
+/*btn google, facebook,...*/
+/*.footerright*/ 
+.socials-share {
+    text-align: right;
+    margin-right:7%;
+    margin-bottom: 30px;
+}
+
+.socials-share a {
+    padding: 4px 20px;
+    color: #fff;
+    line-height: 2em;
+    text-decoration: none;
+    border-radius: 2px;
+    white-space: nowrap;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.socials-share span.fa {
+    margin-right: 1px;
+}
+
+.bg-facebook {
+    background: #3a5899;
+}
+
+.bg-facebook:hover, .bg-facebook:focus {
+    background: #1d418d;
+}
+
+.bg-twitter {
+    background: #00acee;
+}
+
+.bg-twitter:hover, .bg-twitter:focus {
+    background: #0b93c7;
+}
+
+.bg-google-plus {
+    background: #db4437;
+}
+
+.bg-google-plus:hover, .bg-google-plus:focus {
+    background: #bb2a1d;
+}
+
+

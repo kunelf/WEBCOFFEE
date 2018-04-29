@@ -1,0 +1,87 @@
+﻿@*@using WebSiteCafe.Models;
+@model SanPham*@
+
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<style>
+    .nivoSlider{
+        display:none;
+    }
+    /*#divDanhMucSP{
+        display:none;
+
+    }*/
+    #Chude{
+        float:left;
+        margin-left:5%;
+        width:600px;
+    }
+    #Hinhanh{
+        margin-left:20%;
+        float:left;
+    }
+    #Tensp{
+        font-weight:normal;
+        font-size:20pt;
+        height:auto;
+        word-wrap:break-word;
+        color:#8d7147;
+    }
+    #Loai,#NCC{
+        font-size:15pt;
+        font-weight:normal;
+        color:black;
+        height:auto;
+    }
+    #Mota{
+        font-weight:normal;
+        color:black;
+        word-wrap:break-word;
+        height:auto;
+    }
+    #Gia span#Gia{
+        font-weight:normal;
+        color:orange;
+        font-size:25pt;
+        height:auto;
+    }
+    input[type=submit]{
+        padding: 10px 20px;
+    }
+    #btnGiohang{
+        font-family:'FontAwesome','Segoe UI';
+        background-color:red;
+        border-radius:25px;
+        background-color:white;
+        color:black;
+        border: 2px solid black;
+    }
+
+    #btnGiohang:hover{
+        background-color:#8d7147;
+        color:white;
+        border:none;
+    }
+</style>
+@*<h2>Chi tiết sản phẩm</h2>*@
+<br />
+<h2 style="text-align: center;color:white; font-size:25px; background-color: #8d7147;background-size:50px;border-radius:15px;padding :15px;width:261px;margin-left:39%;">Chi Tiết Sản Phẩm</h2>
+<br />
+<hr />
+<div id="Hinhanh"><img src="@Url.Content("/hinhanhsp/" +Model.AnhBia)" style="width:236px; height:369px"/></div>
+<div id="Chude">
+    <div id="Tensp">@Model.TenSP</div>
+    <div id="Loai">Loại: @ViewBag.TenLoai</div>
+    <div id="NCC">Nhà cung cấp:@ViewBag.TenNCC</div>
+    <div id="Mota">Mô Tả: @Html.Raw(Model.MoTa)<br/></div>
+    <div id="Gia"><span style="color:green;font-weight:normal;">Đơn giá:</span><br/><span id="Gia">@string.Format("{0:0,0}",Model.GiaBan) VNĐ</span></div>
+    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = Model.MaSP, @strURL = Request.Url.ToString() }))
+    {
+        <input type="submit" style="cursor:pointer;" value="Mua hàng &#xf07a;" id="btnGiohang" class="btn btn-primary" />
+    }
+    <br />
+    <a href="@Model.ThanhToanTT"><input type="button" style="background-image: url('../../HinhAnh/btnthanhtoan1.png');width:130px;height:53px; " title="Thanh toán trực tuyến an toàn dùng tài khoản Ngân hàng (VietcomBank, TechcomBank, Đông Á, VietinBank, Quân Đội, VIB, SHB,... và thẻ Quốc tế (Visa, Master Card...) qua Cổng thanh toán trực tuyến BảoKim.vn" /></a>
+</div>
+<div style="clear:both"></div>

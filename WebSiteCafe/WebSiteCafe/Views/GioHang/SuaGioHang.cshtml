@@ -1,0 +1,57 @@
+﻿@using WebSiteCafe.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<style>
+    #divDanhMucSP {
+        display: none;
+    }
+    /*td{
+        border:1px solid;
+    }*/
+    #divGioHang{
+        /*border:1px solid #EEEEEE;*/
+        margin-left:10%;
+    }
+    #divGioHang td{
+        padding:15px;
+        border:1px solid #EEEEEE;
+    }
+</style>
+<h2 style="text-align: center;color:white; font-size:25px; background-color: #8d7147;background-size:50px;border-radius:15px;padding :15px;width:141px;margin-left:43%">Giỏ Hàng</h2>
+
+<table id="divGioHang">
+    <tr>
+        <td>Mã sản phẩm</td>
+        <td>Tên sản phẩm</td>
+        <td>Ảnh bìa</td>
+        <td>Đơn giá</td>
+        <td>Số lượng</td>
+        <td>Thành tiền</td>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.iMasp</td>
+            <td>@item.sTensp</td>
+            <td><a href="@Url.Action("XemChiTiet","Home",new { @MaSP=item.iMasp})"><img src="@Url.Content("~/hinhanhsp/" + item.sAnhbia)" style="width:50px;height:50px"></a></td>
+            <td>@string.Format("{0:0,0}", item.dDongia) VNĐ</td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMasp = item.iMasp }))
+            {
+                <td>@Html.TextBox("txtSoLuong",item.iSoluong)</td>
+                <td>@string.Format("{0:0,0}", item.dThanhtien) VNĐ</td>
+                <td>
+                    <input type="submit" value="Cập nhật" />
+                    <br />
+                    @Html.ActionLink("Xóa", "XoaGioHang", new { @iMasp = item.iMasp })
+                </td>
+            }
+        </tr>
+    }
+</table>
+
+

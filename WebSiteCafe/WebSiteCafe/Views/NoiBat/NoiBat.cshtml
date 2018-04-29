@@ -1,0 +1,85 @@
+﻿@using WebSiteCafe.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+
+<link href="~/Content/TrangChu.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "NoiBat";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@if (Model.Count == 0)
+{
+    <h1>@ViewBag.SanPham</h1>
+}
+
+<div id="divbody">
+    @{int i = 0;}
+    @foreach (var sp in Model)
+    {
+        i++;
+        <div class="container">
+            <img src="@Url.Content("~/hinhanhsp/" +sp.AnhBia)" alt="Avatar" class="image" style="width:236px; height:360px" />
+            <div class="middle">
+                <div class="text"><a href="@Url.Action("XemChiTiet","Home",new { MaSP = sp.MaSP})" style="text-decoration:none;">Chi tiết!</a></div>
+            </div>
+
+            <div id="ThongTin">
+                @if (sp.TenSP.Length < 20)
+                {
+                    <div id="TenSanPham" title="@sp.TenSP">@sp.TenSP</div>
+                }
+                else
+                {
+                    <div id="TenSanPham" title="@sp.TenSP">@sp.TenSP.Substring(0, 20)...</div>
+                }
+                <div id="DonGia" style="color:orange"><font color="Green">Giá:</font>@String.Format("{0:0,0}", sp.GiaBan) VNĐ</div>
+            </div>
+
+        </div>
+        if (i % 4 == 0)
+        {
+            <div style="clear:both;"></div>
+        }
+
+    }
+</div>
+<div style="clear:both"></div>
+@*Tạo liên kết trang*@
+@*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;*@
+<style>
+        .MenuTrang li {
+            display: inline-block;
+        }
+
+        .MenuTrang a {
+            display: inline-block;
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            /*transition: background-color .3s;*/
+            -moz-transition: all .5s ease-out;
+            -webkit-transition: all .5s ease-out;
+            border: 1px solid #ddd;
+            margin: 0 2px;
+            border-radius: 5px;
+        }
+
+        .MenuTrang a:visited {
+            background-color: #ddd;
+            color: black;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .MenuTrang a:hover:not(:visited) {
+            background-color: #c6c6c6;
+            border-radius: 5px;
+        }
+</style>
+<div style="text-align:center">
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("NoiBat", new { page = page }))
+    </div>
+</div>

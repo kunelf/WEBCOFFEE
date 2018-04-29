@@ -1,0 +1,105 @@
+﻿@model WebSiteCafe.Models.SanPham
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TenSP)*@
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.GiaBan)*@
+            Giá bán:
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.GiaBan)*@
+            @String.Format("{0:0,0}",Model.GiaBan) VNĐ
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.MoTa)*@
+            Mô tả:
+        </dt>
+
+        <dd style="width:600px;text-align:justify">
+
+            @Html.Raw(@Model.MoTa)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.AnhBia)*@
+            Ảnh bìa:
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.AnhBia)*@
+            <img src="@Url.Content("~/hinhanhsp/"+Model.AnhBia)" style="width:120px" />
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NgayCapNhat)*@
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.NgayCapNhat)*@
+            @String.Format("{0:dd/MM/yyyy}",Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.SoLuongTon)*@
+            Số lượng tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.MaLoai)*@
+            Loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanLoai.TenLoai)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.MaNCC)*@
+            Nhà cung cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Moi)*@
+            Mới
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Moi) (Ghi chú: 1:Mới nhất; 2:Nổi bật; 3:Bán chạy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Điều chỉnh", "SuaSanPham", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>
