@@ -5,10 +5,11 @@
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
-<h2>Nhà cung cấp</h2>
+<h2 style="text-align: center;color:white; font-size:25px; background-color: #444444;background-size:50px;border-radius:15px;padding :15px;width:200px;margin-left:40%">Nhà cung cấp</h2>
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm nhà cung cấp", "ThemMoiNCC")
 </p>
 <table class="table">
     <tr>
@@ -42,9 +43,7 @@
             @Html.DisplayFor(modelItem => item.DienThoai)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Xóa", "XoaNCC", new { id = item.MaNCC })
         </td>
     </tr>
 }

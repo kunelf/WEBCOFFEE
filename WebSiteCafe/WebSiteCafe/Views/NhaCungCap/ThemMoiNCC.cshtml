@@ -5,24 +5,17 @@
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
-<h2>Thêm nhà cung cấp</h2>
+<h2 style="text-align: center;color:white; font-size:25px; background-color: #444444;background-size:50px;border-radius:15px;padding :15px;width:317px;margin-left:40%">Thêm mới nhà cung cấp</h2>
+
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>NhaCungCap</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.MaNCC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaNCC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaNCC, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.TenNCC, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -49,12 +42,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Thêm mới" class="btn btn-default" />
+                <input type="submit" value="Lưu" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "NhaCungCap")
+    @Html.ActionLink("Trở về", "NhaCungCap","NhaCungCap")
 </div>

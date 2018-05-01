@@ -13,7 +13,14 @@ namespace WebSiteCafe.Controllers
         QuanLyCafeEntities db = new QuanLyCafeEntities();
         public ActionResult ChiTietDonHang()
         {
-            return View(db.ChiTietDonHangs.ToList());
+            if (Session["Taikhoanadmin"] != null)
+            {
+                return View(db.ChiTietDonHangs.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "QuanLySanPham");
+            }
         }
     }
 }

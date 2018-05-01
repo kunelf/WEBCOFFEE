@@ -5,14 +5,14 @@
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
-<h2>ThemMoiSanPham</h2>
+<h2 style="text-align: center;color:white; font-size:25px; background-color: #444444;background-size:50px;border-radius:15px;padding :15px;width:317px;margin-left:40%">Thêm mới sản phẩm</h2>
+
 @using (Html.BeginForm("ThemMoiSanPham", "QuanLySanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>SanPham</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -99,5 +99,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Trở về", "Index")
 </div>

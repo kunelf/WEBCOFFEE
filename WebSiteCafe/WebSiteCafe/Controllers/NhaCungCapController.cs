@@ -13,7 +13,14 @@ namespace WebSiteCafe.Controllers
         QuanLyCafeEntities db = new QuanLyCafeEntities();
         public ActionResult NhaCungCap()
         {
-            return View(db.NhaCungCaps.ToList());
+            if (Session["Taikhoanadmin"] != null)
+            {
+                return View(db.NhaCungCaps.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login","QuanLySanPham");
+            }
         }
         [HttpGet]
         public ActionResult ThemMoiNCC()
@@ -22,11 +29,39 @@ namespace WebSiteCafe.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemMoiSanPham(SanPham sanpham, HttpPostedFileBase fileUpload)
+        public ActionResult ThemMoiNCC( NhaCungCap NCC,HttpPostedFileBase fileUpload)
         {
-            return View();
-           
 
+            db.NhaCungCaps.Add(NCC);
+            db.SaveChanges();
+            return View();
         }
+        [HttpGet]
+        public ActionResult XoaNCC(int id)
+        {
+            NhaCungCap NCC = db.NhaCungCaps.SingleOrDefault(n => n.MaNCC == id);
+            ViewBag.MaNCC = NCC.MaNCC;
+            if(NCC== null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(NCC);
+        }
+        [HttpPost, ActionName("XoaNCC")]
+        public ActionResult XacNhanXoa(int id)
+        {
+            NhaCungCap NCC = db.NhaCungCaps.SingleOrDefault(n => n.MaNCC == id);
+            ViewBag.MaNCC = NCC.MaNCC;
+            if (NCC == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.NhaCungCaps.Remove(NCC);
+            db.SaveChanges();
+            return RedirectToAction("NhaCungCap");
+        }
+
     }
 }

@@ -442,6 +442,7 @@
     <Content Include="Views\KhachHang\KhachHang.cshtml" />
     <Content Include="Views\NhaCungCap\NhaCungCap.cshtml" />
     <Content Include="Views\NhaCungCap\ThemMoiNCC.cshtml" />
+    <Content Include="Views\NhaCungCap\XoaNCC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

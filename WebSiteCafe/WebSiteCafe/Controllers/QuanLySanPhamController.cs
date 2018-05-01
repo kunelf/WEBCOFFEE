@@ -16,10 +16,19 @@ namespace WebSiteCafe.Controllers
         QuanLyCafeEntities db = new QuanLyCafeEntities();
         public ActionResult Index(int? page)
         {
-            int pageNumber = (page ?? 1);
-            int pageSize = 10;
+            if (Session["Taikhoanadmin"] != null)
+            {
+                //return View();
+                int pageNumber = (page ?? 1);
+                int pageSize = 10;
 
-            return View(db.SanPhams.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
+                return View(db.SanPhams.ToList().OrderBy(n => n.MaSP).ToPagedList(pageNumber, pageSize));
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+            
         }
         [HttpGet]
         public ActionResult Login()
@@ -41,6 +50,7 @@ namespace WebSiteCafe.Controllers
             {
 
                 Session["Taikhoanadmin"] = ad;
+                Session["Tenadmin"] = tendn;
                 return RedirectToAction("Index", "QuanLySanPham");
             }
             else
